@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Better Call Sal | Sound Engineer</title>
+
+  <link rel="icon" type="image/png" href="favicon.png">
+
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --black:#0d0d0d;
+      --white:#ffffff;
+      --aqua:#00e5d4;
+      --orange:#ff6a00;
+    }
+
+    * { margin:0; padding:0; box-sizing:border-box; }
+
+    body {
+      font-family:'Space Grotesk', sans-serif;
+      background:var(--black);
+      color:var(--white);
+      cursor:none;
+      overflow-x:hidden;
+    }
+
+    /* LOADER WITH LOGO + MUSIC BARS */
+    .loader {
+      position:fixed;
+      inset:0;
+      background:#0d0d0d;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      z-index:9999;
+      transition:opacity 0.6s ease;
+    }
+
+    .loader.hidden { opacity:0; pointer-events:none; }
+
+    .loader img {
+      width:80px;
+      margin-bottom:20px;
+      filter: drop-shadow(0 0 10px var(--aqua));
+    }
+
+    .bars {
+      display:flex;
+      gap:6px;
+    }
+
+    .bars span {
+      width:6px;
+      height:20px;
+      background:var(--aqua);
+      animation:equalizer 1s infinite ease-in-out;
+    }
+
+    .bars span:nth-child(2){ animation-delay:0.2s; }
+    .bars span:nth-child(3){ animation-delay:0.4s; }
+    .bars span:nth-child(4){ animation-delay:0.6s; }
+
+    @keyframes equalizer {
+      0%,100% { height:10px; }
+      50% { height:30px; }
+    }
+
+    /* NAV */
+    nav {
+      position:fixed;
+      width:100%;
+      display:flex;
+      justify-content:space-between;
+      padding:20px 40px;
+      background:rgba(0,0,0,0.5);
+      backdrop-filter:blur(10px);
+      z-index:1000;
+    }
+
+    nav img { height:40px; }
+
+    nav a {
+      color:#fff;
+      margin-left:20px;
+      cursor:pointer;
+      text-decoration:none;
+    }
+
+    nav a:hover { color:var(--aqua); }
+
+    /* PAGES */
+    .page { display:none; padding:100px 40px; }
+    .page.active { display:block; }
+
+    /* HERO */
+    .hero {
+      height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+    }
+
+    .hero h1 { font-size:64px; }
+    .hero span { color:var(--aqua); }
+    .hero p { color:var(--orange); margin-top:10px; }
+
+    /* GRID */
+    .grid {
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+      gap:20px;
+    }
+
+    .card {
+      background:#111;
+      border-radius:12px;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,0.05);
+      transition:0.3s;
+    }
+
+    .card:hover {
+      transform:translateY(-5px);
+      border-color:var(--aqua);
+    }
+
+    .card img { width:100%; }
+    .card-content { padding:15px; }
+
+    .tag { color:var(--orange); font-size:12px; }
+
+    footer { text-align:center; padding:40px; opacity:0.5; }
+  </style>
+</head>
+
+<body>
+
+<!-- LOADING SCREEN -->
+<div class="loader" id="loader">
+  <!-- USE YOUR FAVICON HERE -->
+  <img src="favicon.png" alt="logo">
+
+  <!-- MUSIC ANIMATION -->
+  <div class="bars">
+    <span></span><span></span><span></span><span></span>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <img src="YOUR-LOGO.png">
+  <div>
+    <a onclick="go('home')">Home</a>
+    <a onclick="go('work')">Credits</a>
+    <a onclick="go('awards')">Awards</a>
+    <a onclick="go('contact')">Contact</a>
+  </div>
+</nav>
+
+<!-- HOME -->
+<div id="home" class="page active">
+  <div class="hero">
+    <div>
+      <h1>BETTER CALL <span>SAL</span></h1>
+      <p>SOUND ENGINEER</p>
+    </div>
+  </div>
+</div>
+
+<!-- WORK -->
+<div id="work" class="page">
+  <h2>Credits</h2>
+  <div class="grid">
+    <div class="card">
+      <img src="PROJECT.jpg">
+      <div class="card-content">
+        <h3>Artist - Song</h3>
+        <p class="tag">Hip-Hop • 2025</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- AWARDS / PRESS -->
+<div id="awards" class="page">
+  <h2>Awards & Press</h2>
+
+  <!-- ADD YOUR ACHIEVEMENTS HERE -->
+  <div class="grid">
+
+    <div class="card">
+      <div class="card-content">
+        <h3>🏆 Award Name</h3>
+        <p class="tag">Year • Organization</p>
+        <p>Short description of what this award is.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-content">
+        <h3>📰 Press Feature</h3>
+        <p class="tag">Publication • Year</p>
+        <p>Link or mention of feature/interview.</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- CONTACT -->
+<div id="contact" class="page">
+  <h2>Contact</h2>
+  <p>Email: YOUR@email.com</p>
+</div>
+
+<footer>© 2026 Better Call Sal</footer>
+
+<script>
+
+  // LOADER
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      document.getElementById('loader').classList.add('hidden');
+    }, 1500);
+  });
+
+  function go(page){
+    document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+    document.getElementById(page).classList.add('active');
+    window.scrollTo(0,0);
+  }
+
+</script>
+
+</body>
+</html>
