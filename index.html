@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Better Call Sal | Sound Engineer</title>
 
-  <!-- 🔥 UPDATED FAVICON (replace with new solid version) -->
   <link rel="icon" type="image/png" href="favicon-solid.png">
 
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -27,7 +26,6 @@
       overflow-x:hidden;
     }
 
-    /* LOADER */
     .loader {
       position:fixed;
       inset:0;
@@ -42,10 +40,7 @@
 
     .loader.hidden { opacity:0; pointer-events:none; }
 
-    .loader img {
-      width:90px;
-      margin-bottom:20px;
-    }
+    .loader img { width:90px; margin-bottom:20px; }
 
     .bars { display:flex; gap:6px; }
 
@@ -56,16 +51,11 @@
       animation:equalizer 1s infinite ease-in-out;
     }
 
-    .bars span:nth-child(2){ animation-delay:0.2s; }
-    .bars span:nth-child(3){ animation-delay:0.4s; }
-    .bars span:nth-child(4){ animation-delay:0.6s; }
-
     @keyframes equalizer {
       0%,100% { height:10px; }
       50% { height:30px; }
     }
 
-    /* NAV */
     nav {
       position:fixed;
       width:100%;
@@ -88,11 +78,9 @@
 
     nav a:hover { color:var(--aqua); }
 
-    /* PAGES */
     .page { display:none; padding:120px 40px; }
     .page.active { display:block; }
 
-    /* HERO */
     .hero {
       height:100vh;
       display:flex;
@@ -103,7 +91,6 @@
       gap:20px;
     }
 
-    /* 🔥 FULL SIZE LOGO (NO GLOW) */
     .hero img {
       width:auto;
       max-width:90%;
@@ -113,33 +100,34 @@
     .hero span { color:var(--aqua); }
     .hero p { color:var(--orange); }
 
-    /* GRID */
-    .grid {
+    /* 🔥 NEW CREDIT GRID */
+    .credits-grid {
       display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+      grid-template-columns:repeat(auto-fill, minmax(225px, 1fr));
       gap:20px;
-      margin-top:20px;
+      margin-top:30px;
     }
 
-    .card {
-      background:#111;
-      border-radius:12px;
+    .credit-item {
+      width:100%;
+      aspect-ratio:1/1;
       overflow:hidden;
-      border:1px solid rgba(255,255,255,0.05);
+      border-radius:12px;
+      background:#111;
       transition:0.3s;
     }
 
-    .card:hover {
-      transform:translateY(-5px);
-      border-color:var(--aqua);
+    .credit-item img {
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      transition:0.3s;
     }
 
-    .card img { width:100%; }
-    .card-content { padding:15px; }
+    .credit-item:hover img {
+      transform:scale(1.05);
+    }
 
-    .tag { color:var(--orange); font-size:12px; }
-
-    /* BIO */
     .bio {
       max-width:800px;
       line-height:1.7;
@@ -153,7 +141,6 @@
 
 <body>
 
-<!-- LOADING SCREEN -->
 <div class="loader" id="loader">
   <img src="favicon-solid.png" alt="logo">
   <div class="bars">
@@ -161,7 +148,6 @@
   </div>
 </div>
 
-<!-- NAV -->
 <nav>
   <img src="bettercallsal_ultra_clean.png">
   <div>
@@ -173,110 +159,55 @@
   </div>
 </nav>
 
-<!-- HOME -->
 <div id="home" class="page active">
   <div class="hero">
-
-    <!-- 🔥 FULL LOGO -->
     <img src="Better Call Sal Logo.jpg" alt="logo">
-
     <h1>BETTER CALL <span>SAL</span></h1>
     <p>SOUND ENGINEER</p>
-
   </div>
 </div>
 
-<!-- BIO -->
 <div id="bio" class="page">
   <h2>Biography</h2>
   <div class="bio">
-    <p>
-      Better Call Sal began his journey in audio at Miami Dade College, where he developed a strong foundation in recording, mixing, and music production. What started as a passion quickly evolved into a professional career, driven by a deep understanding of sound and a commitment to excellence.
-    </p>
-
-    <p style="margin-top:15px;">
-      Over the years, Sal has worked with a wide range of artists, from legendary names to today’s biggest stars. His credits include collaborations with icons such as Gucci Mane, Marc Anthony, and Morgan Heritage, as well as global superstars like Sexyy Red, City Girls, J Balvin, Camila Cabello, Frank Ocean, and many more.
-    </p>
-
-    <p style="margin-top:15px;">
-      Known for his versatility across genres—including hip-hop, reggae, and Latin music—Sal brings a refined ear and technical precision to every project. His work on Grammy-nominated recordings reflects both his skill and his ability to elevate an artist’s vision through sound.
-    </p>
-
-    <p style="margin-top:15px;">
-      Today, Better Call Sal continues to push boundaries in audio engineering, delivering industry-level quality while building lasting relationships with artists worldwide.
-    </p>
+    <p>Better Call Sal began his journey in audio at Miami Dade College, building a strong foundation in recording, mixing, and production.</p>
   </div>
 </div>
 
-<!-- WORK -->
+<!-- 🔥 UPDATED WORK SECTION -->
 <div id="work" class="page">
   <h2>Selected Credits</h2>
-
-  <img src="images/2 live crew one horse sleigh.jpeg">
-  <img src="images/21 savage i am i was art.avif">
-  <img src="images/adam port move remix art.jpg">
-  <img src="images/Amaarae_-_Black_Star art.png">
-  <img src="images/Camila-Cabello-C-XOXO art.webp">
-  <img src="images/City_Girls_-_City_on_Lock.png">
-  <img src="images/City_Girls_-_Twerkulator.png">
-  <img src="images/City_Girls_featuring_Cardi_B_-_Twerk_(Official_Single_Cover).png">
-  <img src="images/City_Girls_Period_Mixtape_Cover.png">
-  <img src="images/cousin stizz perfect ft city girls.jpg">
-  <img src="images/drake for all the dogs art.jpeg">
-  <img src="images/g herbo humble beast art.jpeg">
 
   <p style="opacity:0.7; margin-top:10px;">
     Selected works. Full credits available on 
     <a href="https://credits.muso.ai/profile/0b150152-da54-48f0-97ae-402241dc2b63" target="_blank" style="color:var(--aqua)">Muso.ai</a>
   </p>
 
-  <div class="grid">
-    <div class="card">
-      <img src="PROJECT.jpg">
-      <div class="card-content">
-        <h3>Artist - Song</h3>
-      </div>
+  <!-- 🔥 IMAGE GRID START -->
+  <div class="credits-grid">
+
+    <!-- 🔁 DUPLICATE THIS BLOCK FOR EACH IMAGE -->
+
+    <div class="credit-item">
+      <img src="images/2 live crew one horse sleigh.jpeg" alt="project">
     </div>
+
+    <div class="credit-item">
+      <img src="21 savage i am i was art.avif" alt="project">
+    </div>
+
+    <div class="credit-item">
+      <img src="adam port move remix art.jpg" alt="project">
+    </div>
+
   </div>
+  <!-- 🔥 IMAGE GRID END -->
 </div>
 
-<!-- AWARDS -->
 <div id="awards" class="page">
   <h2>Awards & Nominations</h2>
-
-  <div class="grid">
-
-    <div class="card">
-      <div class="card-content">
-        <h3>🏆 Grammy Nomination</h3>
-        <p class="tag">2017 • Grammy</p>
-        <p>Morgan Heritage - Avrekedabra</p>
-        <p>Engineer</p>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-content">
-        <h3>🏆 Grammy Nomination</h3>
-        <p class="tag">2019 • Grammy</p>
-        <p>21 Savage - I Am > I Was</p>
-        <p>Recording Engineer</p>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-content">
-        <h3>🏆 Latin Grammy Nomination</h3>
-        <p class="tag">2024 • Latin Grammy</p>
-        <p>Nicki Nicole - Alma</p>
-        <p>Ingenerio de Grabación</p>
-      </div>
-    </div>
-
-  </div>
 </div>
 
-<!-- CONTACT -->
 <div id="contact" class="page">
   <h2>Contact</h2>
   <p>Email: smajail.ch@email.com</p>
@@ -285,7 +216,6 @@
 <footer>© 2026 Better Call Sal</footer>
 
 <script>
-
   window.addEventListener('load', () => {
     setTimeout(() => {
       document.getElementById('loader').classList.add('hidden');
@@ -297,7 +227,6 @@
     document.getElementById(page).classList.add('active');
     window.scrollTo(0,0);
   }
-
 </script>
 
 </body>
