@@ -23,11 +23,10 @@
       font-family:'Space Grotesk', sans-serif;
       background:var(--black);
       color:var(--white);
-      cursor:none;
       overflow-x:hidden;
     }
 
-    /* LOADER WITH LOGO + MUSIC BARS */
+    /* LOADER */
     .loader {
       position:fixed;
       inset:0;
@@ -43,15 +42,12 @@
     .loader.hidden { opacity:0; pointer-events:none; }
 
     .loader img {
-      width:80px;
+      width:90px;
       margin-bottom:20px;
-      filter: drop-shadow(0 0 10px var(--aqua));
+      filter: drop-shadow(0 0 10px var(--aqua)) drop-shadow(0 0 20px var(--white));
     }
 
-    .bars {
-      display:flex;
-      gap:6px;
-    }
+    .bars { display:flex; gap:6px; }
 
     .bars span {
       width:6px;
@@ -93,7 +89,7 @@
     nav a:hover { color:var(--aqua); }
 
     /* PAGES */
-    .page { display:none; padding:100px 40px; }
+    .page { display:none; padding:120px 40px; }
     .page.active { display:block; }
 
     /* HERO */
@@ -103,17 +99,25 @@
       align-items:center;
       justify-content:center;
       text-align:center;
+      flex-direction:column;
+      gap:20px;
+    }
+
+    .hero img {
+      width:140px;
+      filter: drop-shadow(0 0 10px var(--aqua));
     }
 
     .hero h1 { font-size:64px; }
     .hero span { color:var(--aqua); }
-    .hero p { color:var(--orange); margin-top:10px; }
+    .hero p { color:var(--orange); }
 
     /* GRID */
     .grid {
       display:grid;
       grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
       gap:20px;
+      margin-top:20px;
     }
 
     .card {
@@ -134,6 +138,13 @@
 
     .tag { color:var(--orange); font-size:12px; }
 
+    /* BIO */
+    .bio {
+      max-width:700px;
+      line-height:1.6;
+      opacity:0.85;
+    }
+
     footer { text-align:center; padding:40px; opacity:0.5; }
   </style>
 </head>
@@ -142,10 +153,7 @@
 
 <!-- LOADING SCREEN -->
 <div class="loader" id="loader">
-  <!-- USE YOUR FAVICON HERE -->
   <img src="BCS favicon_32x32.png" alt="logo">
-
-  <!-- MUSIC ANIMATION -->
   <div class="bars">
     <span></span><span></span><span></span><span></span>
   </div>
@@ -156,6 +164,7 @@
   <img src="bettercallsal_ultra_clean.png">
   <div>
     <a onclick="go('home')">Home</a>
+    <a onclick="go('bio')">Bio</a>
     <a onclick="go('work')">Credits</a>
     <a onclick="go('awards')">Awards</a>
     <a onclick="go('contact')">Contact</a>
@@ -165,32 +174,50 @@
 <!-- HOME -->
 <div id="home" class="page active">
   <div class="hero">
-    <div>
-      <h1>BETTER CALL <span>SAL</span></h1>
-      <p>SOUND ENGINEER</p>
-    </div>
+
+    <!-- BIG LOGO -->
+    <img src="bettercallsal_ultra_clean.png" alt="logo">
+
+    <h1>BETTER CALL <span>SAL</span></h1>
+    <p>SOUND ENGINEER</p>
+
+  </div>
+</div>
+
+<!-- BIO -->
+<div id="bio" class="page">
+  <h2>Biography</h2>
+  <div class="bio">
+    <p>
+      <!-- WRITE YOUR STORY HERE -->
+      Better Call Sal is a professional sound engineer known for working with major artists across hip-hop, reggae, and Latin music. With years of experience in recording, mixing, and production, Sal has contributed to Grammy-nominated projects and continues to deliver high-quality sound across genres.
+    </p>
   </div>
 </div>
 
 <!-- WORK -->
 <div id="work" class="page">
-  <h2>Credits</h2>
+  <h2>Selected Credits</h2>
+
+  <p style="opacity:0.7; margin-top:10px;">
+    Selected works. Full credits available on 
+    <a href="https://muso.ai" target="_blank" style="color:var(--aqua)">Muso.ai</a>
+  </p>
+
   <div class="grid">
     <div class="card">
       <img src="PROJECT.jpg">
       <div class="card-content">
         <h3>Artist - Song</h3>
-        <p class="tag">Hip-Hop • 2025</p>
       </div>
     </div>
   </div>
 </div>
 
-<!-- AWARDS / PRESS -->
+<!-- AWARDS -->
 <div id="awards" class="page">
   <h2>Awards & Nominations</h2>
 
-  <!-- ADD YOUR ACHIEVEMENTS HERE -->
   <div class="grid">
 
     <div class="card">
@@ -198,8 +225,6 @@
         <h3>🏆 Grammy Nomination</h3>
         <p class="tag">2017 • Grammy</p>
         <p>Morgan Heritage - Avrekedabra</p>
-        <p>Best Reggae Album</p> 
-        <p>Engineer</p>
       </div>
     </div>
 
@@ -208,8 +233,6 @@
         <h3>🏆 Grammy Nomination</h3>
         <p class="tag">2019 • Grammy</p>
         <p>21 Savage - I Am > I Was</p>
-        <p>Best Rap Album</p>
-        <p>Recording Engineer</p>
       </div>
     </div>
 
@@ -217,11 +240,8 @@
       <div class="card-content">
         <h3>🏆 Latin Grammy Nomination</h3>
         <p class="tag">2024 • Latin Grammy</p>
-        <p>Nicki Nicole - Alma</p> 
-        <p>Mejor Album de Musica Urbana</p>
-        <p>Ingeniero de Grabación</p>
+        <p>Nicki Nicole - Alma</p>
       </div>
-    </div>
     </div>
 
   </div>
@@ -237,7 +257,6 @@
 
 <script>
 
-  // LOADER
   window.addEventListener('load', () => {
     setTimeout(() => {
       document.getElementById('loader').classList.add('hidden');
