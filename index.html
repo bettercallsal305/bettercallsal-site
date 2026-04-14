@@ -5,8 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Better Call Sal | Sound Engineer</title>
 
-  
-  <link rel="icon" type="image/png" href="BCS favicon_32x32.png">
+  <link rel="icon" type="image/png" href="favicon-solid.png">
 
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600&display=swap" rel="stylesheet">
 
@@ -22,8 +21,8 @@
 
     body {
       font-family:'Space Grotesk', sans-serif;
-      background:var(--white);
-      color:var(--black);
+      background:var(--black);
+      color:var(--white);
       overflow-x:hidden;
     }
 
@@ -62,39 +61,47 @@
       width:100%;
       display:flex;
       justify-content:space-between;
-      padding:20px 20px;
-      background:rgba(0,0,0,0.5);
+      padding:16px 20px;
+      background:rgba(255,255,255,0.9);
       backdrop-filter:blur(10px);
       z-index:1000;
+      border-bottom:1px solid rgba(0,0,0,0.05);
     }
 
     nav img { height:40px; }
 
     nav a {
-      color:#fff;
+      color:var(--black);
       margin-left:20px;
       cursor:pointer;
       text-decoration:none;
+      font-weight:500;
     }
 
     nav a:hover { color:var(--aqua); }
 
-    .page { display:none; padding:120px 40px; }
+    .page { display:none; padding:100px 40px; }
+    .page.active { display:block; }
+
+    /* Make HOME take full viewport without extra scroll */
+    #home.page { padding:0; }
     .page.active { display:block; }
 
     .hero {
-      height:100vh;
+      height:calc(100vh - 72px);
       display:flex;
       align-items:center;
       justify-content:center;
       text-align:center;
       flex-direction:column;
-      gap:20px;
+      gap:10px;
+      padding:10px 20px;
     }
 
     .hero img {
       width:auto;
-      max-width:90%;
+      max-width:70%;
+      height:auto;
     }
 
     .hero h1 { font-size:64px; }
@@ -137,13 +144,70 @@
     }
 
     footer { text-align:center; padding:40px; opacity:0.5; }
+  
+
+    /* 📱 MOBILE OPTIMIZATION */
+    @media (max-width: 768px) {
+
+      nav {
+        padding:15px 20px;
+      }
+
+      nav img {
+        height:30px;
+      }
+
+      nav div {
+        display:flex;
+        flex-wrap:wrap;
+        justify-content:flex-end;
+        gap:10px;
+      }
+
+      nav a {
+        margin-left:10px;
+        font-size:14px;
+      }
+
+      .page {
+        padding:100px 20px;
+      }
+
+      .hero {
+        height:auto;
+        padding-top:120px;
+      }
+
+      .hero img {
+        max-width:95%;
+      }
+
+      .hero h1 {
+        font-size:36px;
+      }
+
+      .hero p {
+        font-size:14px;
+      }
+
+      .credits-grid {
+        grid-template-columns:repeat(2, 1fr);
+        gap:12px;
+      }
+
+      .bio {
+        font-size:15px;
+      }
+
+    }
+
   </style>
 </head>
 
 <body>
 
 <div class="loader" id="loader">
-  <img src="BCS favicon_32x32.png" alt="logo">
+  <img src="favicon-solid.png" alt="logo">
   <div class="bars">
     <span></span><span></span><span></span><span></span>
   </div>
@@ -163,26 +227,17 @@
 <div id="home" class="page active">
   <div class="hero">
     <img src="Better Call Sal Logo.jpg" alt="logo">
+    <h1>BETTER CALL <span>SAL</span></h1>
+    <p>SOUND ENGINEER</p>
   </div>
 </div>
 
-<!-- BIO --> 
-  
-  <div id="bio" class="page"> 
-    
-    <h2>Biography</h2> 
-    <div class="bio"> 
-      <p> Salvador "Better Call Sal" Majail began his journey in audio at Miami Dade College, where he developed a strong foundation in recording, mixing, and music production. What started as a passion quickly evolved into a professional career, driven by a deep understanding of sound and a commitment to excellence. </p> 
-      
-      <p style="margin-top:15px;"> Over the years, Sal has worked with a wide range of artists, from legendary names to today’s biggest stars. His credits include collaborations with icons such as Gucci Mane, Marc Anthony, and Morgan Heritage, as well as global superstars like Sexyy Red, City Girls, J Balvin, Camila Cabello, Frank Ocean, and many more. </p> 
-      
-      <p style="margin-top:15px;"> Known for his versatility across genres—including hip-hop, reggae, and Latin music—Sal brings a refined ear and technical precision to every project. His work on Grammy-nominated recordings reflects both his skill and his ability to elevate an artist’s vision through sound. </p> 
-      
-      <p style="margin-top:15px;"> Today, Sal continues to push boundaries in audio engineering, delivering industry-level quality while building lasting relationships with artists worldwide. 
-      
-      </p> 
-    </div> 
+<div id="bio" class="page">
+  <h2>Biography</h2>
+  <div class="bio">
+    <p>Better Call Sal began his journey in audio at Miami Dade College, building a strong foundation in recording, mixing, and production.</p>
   </div>
+</div>
 
 <!-- 🔥 UPDATED WORK SECTION -->
 <div id="work" class="page">
@@ -193,259 +248,37 @@
     <a href="https://credits.muso.ai/profile/0b150152-da54-48f0-97ae-402241dc2b63" target="_blank" style="color:var(--aqua)">Muso.ai</a>
   </p>
 
-  <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/playlist/2TsbFDkhfhzfw8rshLTo7c?utm_source=generator&theme=0" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-
   <!-- 🔥 IMAGE GRID START -->
   <div class="credits-grid">
 
     <!-- 🔁 DUPLICATE THIS BLOCK FOR EACH IMAGE -->
 
     <div class="credit-item">
-      <img src="images/2 live crew one horse sleigh.jpeg" alt="project">
+      <img src="images/project1.jpg" alt="project">
     </div>
 
     <div class="credit-item">
-      <img src="images/21 savage i am i was art.avif" alt="project">
+      <img src="images/project2.jpg" alt="project">
     </div>
 
     <div class="credit-item">
-      <img src="images/adam port move remix art.jpg" alt="project">
-    </div>
-
-    <div class="credit-item">
-      <img src="images/Amaarae_-_Black_Star art.png" alt="project">
-    </div>
-
-    <div class="credit-item">
-      <img src="images/Camila-Cabello-C-XOXO art.webp" alt="project">
-    </div>
-
-    <div class="credit-item">
-      <img src="images/City_Girls_-_City_on_Lock.png" alt="project">
-    </div>
-
-    <div class="credit-item">
-      <img src="images/City_Girls_-_Twerkulator.png" alt="project">
-    </div>
-
-    <div class="credit-item">
-      <img src="images/City_Girls_featuring_Cardi_B_-_Twerk_(Official_Single_Cover).png" alt="project">
-    </div>
-
-    <div class="credit-item">
-      <img src="images/City_Girls_Period_Mixtape_Cover.png" alt="project">
-    </div>
-
-    <div class="credit-item">
-      <img src="images/cousin stizz perfect ft city girls.jpg" alt="project">
-    </div>
-
-    <div class="credit-item">
-      <img src="images/drake for all the dogs art.jpeg" alt="project">
-    </div>
-
-    <div class="credit-item">
-      <img src="images/g herbo humble beast art.jpeg" alt="project">
-    </div>
-
-    <div class="credit-item">
-      <img src="images/g herbo swervo art.jpeg" alt="project">
-    </div>
-
-    <div class="credit-item">
-      <img src="images/GirlCodeCityGirls.png" alt="project">
-    </div>
-
-    <div class="credit-item">
-      <img src="images/GloRilla_-_Glorious art.png" alt="project">
-    </div>
-
-    <div class="credit-item">
-      <img src="images/Grateful_by_DJ_Khaled_cover.jpg" alt="project">
-    </div>
-
-    <div class="credit-item">
-      <img src="images/gucci mane delusions of grandeur art.jpeg" alt="project">
-    </div>
-
-    <div class="credit-item">
-      <img src="images/gucci mane goat art.jpeg" alt="project">
-    </div>
-
-    <div class="credit-item">
-      <img src="images/gucci mane ice daddy art.jpg" alt="project">
-    </div>
-
-    <div class="credit-item">
-      <img src="images/gucci mane so icy boys art.jpeg" alt="project">
-    </div>
-
-    <div class="credit-item">
-      <img src="images/honestav hara kiri art.jpeg" alt="project">
-    </div>
-
-    <div class="credit-item">
-      <img src="images/honestav hara kiri deluxe art.webp" alt="project">
-    </div>
-
-    <div class="credit-item">
-      <img src="images/Justin-Bieber-SWAG art.webp" alt="project">
-    </div>
-
-    <div class="credit-item">
-      <img src="images/kaash paige love songs art.jpeg" alt="project">
-    </div>
-
-    <div class="credit-item">
-      <img src="images/kaash paige parked car convos art.jpg" alt="project">
-    </div>
-
-    <div class="credit-item">
-      <img src="images/kaash paige teenage fever art.jpeg" alt="project">
-    </div>
-
-    <div class="credit-item">
-      <img src="images/kidd g down home boy album art.jpg" alt="project">
-    </div>
-
-    <div class="credit-item">
-      <img src="images/kidd g people talk art.jpeg" alt="project">
-    </div>
-
-    <div class="credit-item">
-      <img src="images/kidd g red clay art.jpg" alt="project">
-    </div>
-
-    <div class="credit-item">
-      <img src="images/kidd g teenage dream 2 art.jpeg" alt="project">
-    </div>
-
-    <div class="credit-item">
-      <img src="images/Leave_Em_Alone.jpg" alt="project">
-    </div>
-
-    <div class="credit-item">
-      <img src="images/lous and the yakuza iota art.jpeg" alt="project">
-    </div>
-
-    <div class="credit-item">
-      <img src="images/morgan heritage avrakedabra art.jpg" alt="project">
-    </div>
-
-    <div class="credit-item">
-      <img src="images/polo g hall of fame art.jpeg" alt="project">
-    </div>
-
-    <div class="credit-item">
-      <img src="images/sexyy red hoods hottest princess art.jpg" alt="project">
-    </div>
-
-    <div class="credit-item">
-      <img src="images/sexyy red pound town 2 art.jpg" alt="project">
-    </div>
-
-    <div class="credit-item">
-      <img src="images/Sexyy_Red_-_In_Sexyy_We_Trust art.png" alt="project">
-    </div>
-
-    <div class="credit-item">
-      <img src="images/summer walker finally over it art.jpeg" alt="project">
-    </div>
-
-    <div class="credit-item">
-      <img src="images/trueno el ultimo baile art.jpeg" alt="project">
-    </div>
-
-    <div class="credit-item">
-      <img src="images/tyler-creator-chromakopia-album-1024x1024.webp" alt="project">
-    </div>
-
-    <div class="credit-item">
-      <img src="images/xavi next art.jpeg" alt="project">
-    </div>
-
-    <div class="credit-item">
-      <img src="images/ynw melly just a matter of slime art.jpg" alt="project">
-    </div>
-
-    <div class="credit-item">
-      <img src="images/YNW_Melly_-_I_Am_You_artwork.jpeg" alt="project">
-    </div>
-
-    <div class="credit-item">
-      <img src="images/YNW_Melly_-_Melly_vs._Melvin.png" alt="project">
-    </div>
-
-    <div class="credit-item">
-      <img src="images/YNW-Melly-We-All-Shine art.webp" alt="project">
+      <img src="images/project3.jpg" alt="project">
     </div>
 
   </div>
   <!-- 🔥 IMAGE GRID END -->
 </div>
 
+<div id="awards" class="page">
+  <h2>Awards & Nominations</h2>
+</div>
 
-  <!-- AWARDS -->
-  
-  <div id="awards" class="page"> 
-    
-    <h2>Awards & Nominations</h2> 
-    
-    <div class="grid"> 
-      
-      <div class="card">
-      
-      <div class="card-content"> 
-        
-        <h3>🏆 Grammy Nomination</h3> 
-        
-        <p class="tag">2017 • Grammy</p>
-        
-        <p>Morgan Heritage - Avrekedabra</p> 
-        
-        <p>Engineer</p> 
-        
-      </div> 
-      
-    </div> 
-      <div class="card"> <div class="card-content"> 
-        
-        <h3>🏆 Grammy Nomination</h3> 
-        
-        <p class="tag">2019 • Grammy</p> 
-        
-        <p>21 Savage - I Am > I Was</p> 
-        
-        <p>Recording Engineer</p> 
-      </div>  
-      </div> 
-      
-      <div class="card"> <div class="card-content"> 
-        
-        <h3>🏆 Latin Grammy Nomination</h3> 
-        
-        <p class="tag">2024 • Latin Grammy</p> 
-        
-        <p>Nicki Nicole - Alma</p> 
-        
-        <p>Ingenerio de Grabación</p> 
-      
-      </div> 
-      </div> 
-    </div> 
-  </div> 
-  
-  <!-- CONTACT --> 
-  
-  <div id="contact" class="page"> 
-    
-    <h2>Contact</h2> 
-    
-    <p>Email: smajail.ch@gmail.com</p> 
-  </div>
+<div id="contact" class="page">
+  <h2>Contact</h2>
+  <p>Email: smajail.ch@email.com</p>
+</div>
 
-
-<footer>© 2026 Majail Sound LLC</footer>
+<footer>© 2026 Better Call Sal</footer>
 
 <script>
   window.addEventListener('load', () => {
